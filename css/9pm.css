@@ -1,0 +1,43 @@
+
+body {
+	width: 100%; min-width:480px;   
+	text-align: center;
+	background-color: #e66;
+}
+
+div#header {
+	width:100%; height:120px; 
+	background-color: #66f; 
+	padding-top: 30px;
+}
+	
+h1{font: bold 60px Georgia, serif; }
+
+div#main{
+	width:100%; height:500px; 
+	
+	padding-top: 20px;
+}
+
+ul#palaces {
+	width:456px; height:456px;
+	border: 1px solid #33f; 
+	position: relative; left:50%; 
+	margin-left:-228px; 
+}
+
+li.palace {
+	width:150px; 
+	height:150px;
+	float: left;
+	background-color: #cce;
+	border: 1px solid;
+
+}
+
+div#foot {
+	width:100%; height:30px; 
+	position: relative; bottom: 0px;
+	background-color: #66f; padding-top: 20px;}
+
+#foot p {font: 15px Aril sans-serif; }

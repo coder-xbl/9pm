@@ -1,0 +1,83 @@
+
+.border-radius(@radius:5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+
+.wrap() {
+  text-wrap: wrap;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre { .wrap }
+
+
+.mixin(@color) {
+  color-1: @color;
+}
+.mixin(@color; @padding:2) {
+  color-2: @color;
+  padding-2: @padding;
+}
+.mixin(@color; @padding; @margin: 2) {
+  color-3: @color;
+  padding-3: @padding;
+  margin: @margin @margin @margin @margin;
+}
+.some .selector div {
+  .mixin(#008000);
+}
+
+
+
+.mixin2(@color: black; @margin: 10px; @padding: 20px) {
+  color: @color;
+  margin: @margin;
+  padding: @padding;
+}
+.class1 {
+  .mixin2(@margin: 20px; @color: #33acfe);
+}
+.class2 {
+  .mixin2(#efca44; @padding: 40px);
+}
+
+.mixin3(dark; @color) {
+  color: darken(@color, 10%);
+}
+.mixin3(light; @color) {
+  color: lighten(@color, 10%);
+}
+.mixin3(@_; @color) {
+  display: block;
+}
+
+@switch: light;
+
+.class {
+  .mixin3(@switch; #888);
+}
+
+.mixin4() {
+  @width:  100%;
+  @height: 200px;
+}
+
+.caller {
+  .mixin4();
+  width:  @width;
+  height: @height;
+}
+
+.average(@x, @y) {
+  @average: ((@x + @y) / 2);
+}
+
+div {
+  .average(16px, 50px); // "call" the mixin
+  padding: @average;    // use its "return" value
+}

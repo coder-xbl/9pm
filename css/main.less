@@ -1,0 +1,210 @@
+// less file for homepage
+
+@import "reset.css";
+
+@colorBody: #55f;
+@colorHeader: #55f;
+@colorMain: #d66;
+@colorPalace: #cce;
+@colorBorder: #33f;
+@colorText: #eef;
+
+@maxWidth: 100%;
+@minWidth: 480px;
+@minHeight: 640px;
+
+@widthBody: 100%;
+@heightHeader: 10%;
+@heightMain: 85%;
+@heightFooter: 5%;
+
+@widthPalaces: 80%;
+@heightPalaces: 80%;
+@topPalaces: 2%;
+
+@widthPalace: 30.5%;
+@marginPalace : 1%;
+
+@widthImg: 80%;
+@topImg : (100% - @widthImg)/2 ;
+
+@widthTemplate: 10%;
+@heightTemplate: 10%;
+
+@mainBgImg: url("../img/bgimg/bg-11.jpg");
+@palaceBgImg: url("../img/bgimg/bg-02s.jpg");
+
+.bgImg(@bgImg, @percent: 100%){
+  background: @bgImg;
+  background-size: 50%+@percent, @percent;
+  background-repeat:no-repeat;
+  background-position:bottom center;
+}
+
+.border-radius(@radius:5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+.border(@color:@colorBorder) {
+  border: 2px solid @color;
+  .border-radius(20px);
+}
+
+.grad(@color1: #55f, @color2: #d66) {
+  background: -webkit-radial-gradient(@color1, @color2); 
+  background: -moz-radial-gradient(@color1, @color2); 
+  background: radial-gradient(@color1, @color2); 
+}
+
+.clear{ clear: both;}
+
+html,body {height: @widthBody; min-height:@minHeight;}
+
+body {
+  width: @widthBody; min-width: @minWidth; 
+  text-align: center;
+  //background-color: @colorBody;
+  color:@colorText;
+  position: relative;
+  .bgImg(@mainBgImg, 120%);
+}
+
+div#header {
+  width:@widthBody; height:@heightHeader; 
+  background-color: @colorHeader; overflow:hidden;
+  background: url(../img/bgimg/bg_head.jpg) bottom left repeat-x;
+  text-align: left; 
+  position: relative;
+  z-index: 5;
+}
+  
+h1 { 
+  position: absolute; left:1%;
+  font: bold 2em Georgia, serif; 
+  margin: 2px 30px 5px;
+  span {
+    font-size: 1.5em; vertical-align: center;
+  }
+}
+
+#btns {
+  width: 160px; height:30px;
+  position: absolute; right:3%;
+  li {
+    float: left;
+    margin: 20px 10px 15px;
+    a { 
+      display: block; 
+      width: 30px; height: 30px; 
+      background-size: 90%; 
+      background-repeat:no-repeat;
+      background-position:bottom center;
+    }
+    #btn_template { background-image: url(../img/icon/template1-60.png);}
+    #btn_scoreboard { background-image: url(../img/icon/scoreboard-60.png);}
+    #btn_user { background-image: url(../img/icon/user-60.png);}
+  }
+}
+
+div#main{
+  width:@widthBody; height:@heightMain; 
+  //background-color: @colorMain;
+  position: relative;  overflow: hidden;
+}
+
+div.ctrl_panel {
+  width: 100%; 
+  height: 85%;
+  position: absolute; left:100%; 
+  top:-100%;
+  /*bottom: 100%;*/
+  .border(#66f);
+  background-color: #333;
+  /*opacity:0.5;*/
+  z-index: 1;
+}
+
+div#template_set {
+  button { 
+    position: absolute; 
+    right: 10px; top:10px;
+  }
+  ul { width: 80%; margin: 0 auto;}
+}
+
+#template_set li {
+  width: 30%; height: 40px;  line-height: 40px;
+  float: left;  text-align: left;
+  font-size: 1.5em; vertical-align: center;
+  .border(#66f); margin: 5% 2% 0;
+  &:hover { background-color: #33f; }
+}
+
+ul#palaces { 
+  width:@widthPalaces; height:@heightPalaces; 
+  max-width: 512px; max-height: @maxWidth;
+  min-width: @minWidth; min-height: @minWidth*.85*.9;
+  margin: auto;
+  position: relative; top:@topPalaces;
+}
+
+li.palace {
+  width:@widthPalace; height:@widthPalace;
+  float: left;
+  /*background-color: @colorPalace;*/
+  /*.bgImg(@palaceBgImg, 120%);*/
+  .grad(#fff, #66f);
+  .border(#66f);
+  margin: @marginPalace;
+
+  img {
+    width: @widthImg; height: @widthImg;
+    position: relative; top: @topImg;
+    margin: auto; vertical-align: middle;
+    /*background-color: @colorPalace;*/
+    /*.bgImg(@palaceBgImg, 120%);*/
+    /*.grad(#fff, #66f);*/
+    border: 2px solid #eef;
+    .border-radius(20px);    
+  }
+}
+
+ul#template {
+  width:@widthPalaces; height:10%; 
+  max-width: 512px; min-width: @minWidth; 
+  margin: 0 auto;
+  position: relative; top:5%; left:1%;
+
+  li {
+    width: @widthTemplate; height:90%;
+    float: left;  margin: 0 1px;
+    border: 1px solid #eef;
+    .border-radius(10px);    
+    background-color: @colorPalace;
+    img {
+      width: 100%; height:100%;
+      border: 1px solid #eef;
+      .border-radius(10px);    
+    }
+  }
+}
+
+div#footer {
+  width:@widthBody; height:@heightFooter; 
+  background-color: @colorHeader; 
+  background:#ccc url(../img/bgimg/bg_btm.jpg) top left repeat-x;
+  /*text-align: left;*/
+}
+
+#footer p {  
+  font: 1em Aril sans-serif; 
+  margin: 0 20px;
+  /*position: relative; top:5px; */
+  span {
+    font-size: 1.3em; vertical-align: center;
+    margin-right: -2px;
+    position: relative; top:2px; 
+  }
+}
+
